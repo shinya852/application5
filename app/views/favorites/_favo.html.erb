@@ -1,0 +1,11 @@
+<% if current_user.already_favorited?(book) %><!--←すでにｲﾈ!!をしているか否か-->
+ <%= link_to book_favorites_path(book), method: :delete do %>
+  <i class="fas fa-heart"></i><!--ハートマークの追加-->
+ <% end %>
+  <%= book.favorites.count %><!--bookの評価をカウントする-->
+ <% else %>
+  <%= link_to book_favorites_path(book), method: :post do %>
+   <i class="far fa-heart"></i>
+  <% end %>
+   <%= book.favorites.count %>
+  <% end %>
