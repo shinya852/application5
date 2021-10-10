@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 devise_for :users
   root 'homes#top'
   get 'home/about' => 'homes#about'
+  #検索機能
+  get 'search' => 'searchs#search'
   #フォロー機能
   resources :users do
     resource :relationships, only: [:create, :destroy]#今回は作成と解除のみ
@@ -12,5 +14,7 @@ devise_for :users
   resources :books do
   resource :favorites, only: [:create, :destroy]#いいね
   resources :book_comments, only: [:create, :destroy]#コメント
-end
+
+
+  end
 end
